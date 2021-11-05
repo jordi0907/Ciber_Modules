@@ -7,16 +7,5 @@
  *
  * @returns A gratifying Hello to the input name
  */
-
-
-export function helloWorld (name: string): string {
-  const text = `Hello ${name}!`
-  if (IS_BROWSER) {
-    console.log(`Browser says "${text}"`)
-  } else {
-    console.log(`Node.js says "${text}"`)
-  }
-  return text
-}
-
-
+export declare function helloWorld(name: string): string;
+//# sourceMappingURL=hello-world.d.ts.map
