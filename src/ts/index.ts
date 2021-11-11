@@ -8,11 +8,10 @@
  */
 
 export { helloWorld } from './hello-world'
-//export * as rsa from './rsa'
-export { rsaKeyPair,  RsaPublicKey, RsaPrivateKey, generateKeys} from './rsa'
-//export * from 'bigint-crypto-utils'
-export * as bigintConversion from 'bigint-conversion'
-
+// export * as rsa from './rsa'
+export { rsaKeyPair, RsaPublicKey, RsaPrivateKey, generateKeys } from './rsa'
+// export * from 'bigint-crypto-utils'
+// export * as bigintConversion from 'bigint-conversion'
 
 /* import * as rsa from './rsa'
 import * as bigintConversion from 'bigint-conversion'
@@ -25,11 +24,9 @@ if (keyRSA === undefined){
       console.log ("data", data)
       keyRSA = data
       console.log("publica", keyRSA)
-    
 
       //const firma: bigint = keyRSA.privateKey.sign(bigintConversion.hexToBigint("pepe"))
 
-      
        console.log("mensaje", mensaje)
       const mensajecifrado: bigint = keyRSA.publicKey.encrypt(bigintConversion.textToBigint(mensaje))
       console.log("mensaje cifrado", mensajecifrado)

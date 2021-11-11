@@ -11,12 +11,12 @@ exports.bigintConversion = exports.generateKeys = exports.RsaPrivateKey = export
 const tslib_1 = require("tslib");
 var hello_world_1 = require("./hello-world");
 Object.defineProperty(exports, "helloWorld", { enumerable: true, get: function () { return hello_world_1.helloWorld; } });
-//export * as rsa from './rsa'
+// export * as rsa from './rsa'
 var rsa_1 = require("./rsa");
 Object.defineProperty(exports, "RsaPublicKey", { enumerable: true, get: function () { return rsa_1.RsaPublicKey; } });
 Object.defineProperty(exports, "RsaPrivateKey", { enumerable: true, get: function () { return rsa_1.RsaPrivateKey; } });
 Object.defineProperty(exports, "generateKeys", { enumerable: true, get: function () { return rsa_1.generateKeys; } });
-//export * from 'bigint-crypto-utils'
+// export * from 'bigint-crypto-utils'
 exports.bigintConversion = (0, tslib_1.__importStar)(require("bigint-conversion"));
 /* import * as rsa from './rsa'
 import * as bigintConversion from 'bigint-conversion'
@@ -29,11 +29,9 @@ if (keyRSA === undefined){
       console.log ("data", data)
       keyRSA = data
       console.log("publica", keyRSA)
-    
 
       //const firma: bigint = keyRSA.privateKey.sign(bigintConversion.hexToBigint("pepe"))
 
-      
        console.log("mensaje", mensaje)
       const mensajecifrado: bigint = keyRSA.publicKey.encrypt(bigintConversion.textToBigint(mensaje))
       console.log("mensaje cifrado", mensajecifrado)
@@ -43,4 +41,4 @@ if (keyRSA === undefined){
   }
   );
 } */
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguYnJvd3Nlci5qcyIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL3RzL2luZGV4LnRzIl0sInNvdXJjZXNDb250ZW50IjpudWxsLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7QUFTQSw2Q0FBMEM7QUFBakMseUdBQUEsVUFBVSxPQUFBO0FBQ25CO0FBQ0EsNkJBQTZFO0FBQXZELG1HQUFBLFlBQVksT0FBQTtBQUFFLG9HQUFBLGFBQWEsT0FBQTtBQUFFLG1HQUFBLFlBQVksT0FBQTtBQUMvRDtBQUNBLG1GQUFxRDtBQUdyRDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OyJ9
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguYnJvd3Nlci5qcyIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL3RzL2luZGV4LnRzIl0sInNvdXJjZXNDb250ZW50IjpudWxsLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7QUFTQSw2Q0FBMEM7QUFBakMseUdBQUEsVUFBVSxPQUFBO0FBQ25CO0FBQ0EsNkJBQTZFO0FBQXhELG1HQUFBLFlBQVksT0FBQTtBQUFFLG9HQUFBLGFBQWEsT0FBQTtBQUFFLG1HQUFBLFlBQVksT0FBQTtBQUM5RDtBQUNBLG1GQUFxRDtBQUVyRDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsifQ==

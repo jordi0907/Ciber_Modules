@@ -8,7 +8,6 @@
  * @returns A gratifying Hello to the input name
  */
 
-
 export function helloWorld (name: string): string {
   const text = `Hello ${name}!`
   if (IS_BROWSER) {
@@ -18,5 +17,3 @@ export function helloWorld (name: string): string {
   }
   return text
 }
-
-

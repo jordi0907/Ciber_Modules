@@ -7,11 +7,45 @@ This module runs perfectly in node.js and browsers
 
 ## Table of contents
 
+### Namespaces
+
+- [bigintConversion](modules/bigintConversion.md)
+
+### Classes
+
+- [RsaPrivateKey](classes/RsaPrivateKey.md)
+- [RsaPublicKey](classes/RsaPublicKey.md)
+
+### Interfaces
+
+- [rsaKeyPair](interfaces/rsaKeyPair.md)
+
 ### Functions
 
+- [generateKeys](API.md#generatekeys)
 - [helloWorld](API.md#helloworld)
 
 ## Functions
+
+### generateKeys
+
+▸ `Const` **generateKeys**(`bitLength`): `Promise`<[`rsaKeyPair`](interfaces/rsaKeyPair.md)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `bitLength` | `number` |
+
+#### Returns
+
+`Promise`<[`rsaKeyPair`](interfaces/rsaKeyPair.md)\>
+
+#### Defined in
+
+[src/ts/rsa.ts:46](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L46)
+
+___
 
 ### helloWorld
 
@@ -35,4 +69,4 @@ A gratifying Hello to the input name
 
 #### Defined in
 
-[hello-world.ts:10](https://github.com/jordi0907/Ciber_Modules/blob/36a0cae/src/ts/hello-world.ts#L10)
+[src/ts/hello-world.ts:11](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/hello-world.ts#L11)
