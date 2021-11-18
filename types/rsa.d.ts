@@ -8,7 +8,6 @@ export declare class RsaPrivateKey {
 export declare class RsaPublicKey {
     e: bigint;
     n: bigint;
-    n2: bigint;
     constructor(e: bigint, n: bigint);
     encrypt(m: bigint): bigint;
     verify(s: bigint): bigint;

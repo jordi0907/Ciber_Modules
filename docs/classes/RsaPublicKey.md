@@ -10,7 +10,6 @@
 
 - [e](RsaPublicKey.md#e)
 - [n](RsaPublicKey.md#n)
-- [n2](RsaPublicKey.md#n2)
 
 ### Methods
 
@@ -32,7 +31,7 @@
 
 #### Defined in
 
-[src/ts/rsa.ts:26](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L26)
+[rsa.ts:25](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L25)
 
 ## Properties
 
@@ -42,7 +41,7 @@
 
 #### Defined in
 
-[src/ts/rsa.ts:22](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L22)
+[rsa.ts:22](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L22)
 
 ___
 
@@ -52,17 +51,7 @@ ___
 
 #### Defined in
 
-[src/ts/rsa.ts:23](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L23)
-
-___
-
-### n2
-
-• **n2**: `bigint`
-
-#### Defined in
-
-[src/ts/rsa.ts:24](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L24)
+[rsa.ts:23](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L23)
 
 ## Methods
 
@@ -82,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/ts/rsa.ts:32](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L32)
+[rsa.ts:30](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L30)
 
 ___
 
@@ -102,4 +91,4 @@ ___
 
 #### Defined in
 
-[src/ts/rsa.ts:36](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L36)
+[rsa.ts:34](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L34)

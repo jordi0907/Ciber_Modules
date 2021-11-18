@@ -1,44 +1,63 @@
+import * as bcu from 'bigint-crypto-utils';
+
 /**
- * My module description. Please update with your module data.
+ * Returns the a Hello to the input string name
  *
- * @remarks
- * This module runs perfectly in node.js and browsers
+ * @remarks An example function that runs different code in Node and Browser javascript
  *
- * @packageDocumentation
+ * @param name - The name to say hello to
+ *
+ * @returns A gratifying Hello to the input name
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.bigintConversion = exports.generateKeys = exports.RsaPrivateKey = exports.RsaPublicKey = exports.helloWorld = void 0;
-const tslib_1 = require("tslib");
-var hello_world_1 = require("./hello-world");
-Object.defineProperty(exports, "helloWorld", { enumerable: true, get: function () { return hello_world_1.helloWorld; } });
-// export * as rsa from './rsa'
-var rsa_1 = require("./rsa");
-Object.defineProperty(exports, "RsaPublicKey", { enumerable: true, get: function () { return rsa_1.RsaPublicKey; } });
-Object.defineProperty(exports, "RsaPrivateKey", { enumerable: true, get: function () { return rsa_1.RsaPrivateKey; } });
-Object.defineProperty(exports, "generateKeys", { enumerable: true, get: function () { return rsa_1.generateKeys; } });
-// export * from 'bigint-crypto-utils'
-exports.bigintConversion = (0, tslib_1.__importStar)(require("bigint-conversion"));
-/* import * as rsa from './rsa'
-import * as bigintConversion from 'bigint-conversion'
+function helloWorld(name) {
+    const text = `Hello ${name}!`;
+    {
+        console.log(`Browser says "${text}"`);
+    }
+    return text;
+}
 
-let keyRSA: rsa.rsaKeyPair
-let mensaje = "hola que tal, como estas"
+class RsaPrivateKey {
+    constructor(d, n) {
+        this.d = d;
+        this.n = n;
+    }
+    decrypt(c) {
+        return bcu.modPow(c, this.d, this.n);
+    }
+    sign(m) {
+        return bcu.modPow(m, this.d, this.n);
+    }
+}
+class RsaPublicKey {
+    constructor(e, n) {
+        this.e = e;
+        this.n = n;
+    }
+    encrypt(m) {
+        return bcu.modPow(m, this.e, this.n);
+    }
+    verify(s) {
+        return bcu.modPow(s, this.e, this.n);
+    }
+}
+const generateKeys = async function (bitLength) {
+    const e = 65537n;
+    let p, q, n, phi;
+    do {
+        p = await bcu.prime(bitLength / 2 + 1);
+        q = await bcu.prime(bitLength / 2);
+        n = p * q;
+        phi = (p - 1n) * (q - 1n);
+    } while (bcu.bitLength(n) !== bitLength || (phi % e === 0n));
+    const publicKey = new RsaPublicKey(e, n);
+    const d = bcu.modInv(e, phi);
+    const privKey = new RsaPrivateKey(d, n);
+    return {
+        publicKey,
+        privateKey: privKey
+    };
+};
 
-if (keyRSA === undefined){
-  rsa.generateKeys(2048).then(data=>{
-      console.log ("data", data)
-      keyRSA = data
-      console.log("publica", keyRSA)
-
-      //const firma: bigint = keyRSA.privateKey.sign(bigintConversion.hexToBigint("pepe"))
-
-       console.log("mensaje", mensaje)
-      const mensajecifrado: bigint = keyRSA.publicKey.encrypt(bigintConversion.textToBigint(mensaje))
-      console.log("mensaje cifrado", mensajecifrado)
-      //const claveDescifradaBigint: bigint = keyRSA.privateKey.decrypt(bigintConversion.hexToBigint(clavecifradaBigint as unknown as string))
-      const mensajeDescifrada: bigint = keyRSA.privateKey.decrypt((mensajecifrado))
-      const mensajeFinal: string = bigintConversion.bigintToText(mensajeDescifrada)
-  }
-  );
-} */
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguYnJvd3Nlci5qcyIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL3RzL2luZGV4LnRzIl0sInNvdXJjZXNDb250ZW50IjpudWxsLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7QUFTQSw2Q0FBMEM7QUFBakMseUdBQUEsVUFBVSxPQUFBO0FBQ25CO0FBQ0EsNkJBQTZFO0FBQXhELG1HQUFBLFlBQVksT0FBQTtBQUFFLG9HQUFBLGFBQWEsT0FBQTtBQUFFLG1HQUFBLFlBQVksT0FBQTtBQUM5RDtBQUNBLG1GQUFxRDtBQUVyRDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsifQ==
+export { RsaPrivateKey, RsaPublicKey, generateKeys, helloWorld };
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguYnJvd3Nlci5qcyIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL3RzL2hlbGxvLXdvcmxkLnRzIiwiLi4vLi4vc3JjL3RzL3JzYS50cyJdLCJzb3VyY2VzQ29udGVudCI6bnVsbCwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7Ozs7Ozs7O1NBVWdCLFVBQVUsQ0FBRSxJQUFZO0lBQ3RDLE1BQU0sSUFBSSxHQUFHLFNBQVMsSUFBSSxHQUFHLENBQUE7SUFDYjtRQUNkLE9BQU8sQ0FBQyxHQUFHLENBQUMsaUJBQWlCLElBQUksR0FBRyxDQUFDLENBQUE7S0FHdEM7SUFDRCxPQUFPLElBQUksQ0FBQTtBQUNiOztNQ2hCYSxhQUFhO0lBSXhCLFlBQWEsQ0FBUyxFQUFFLENBQVM7UUFDL0IsSUFBSSxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUE7UUFDVixJQUFJLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQTtLQUNYO0lBRUQsT0FBTyxDQUFFLENBQVM7UUFDaEIsT0FBTyxHQUFHLENBQUMsTUFBTSxDQUFDLENBQUMsRUFBRSxJQUFJLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQTtLQUNyQztJQUVELElBQUksQ0FBRSxDQUFTO1FBQ2IsT0FBTyxHQUFHLENBQUMsTUFBTSxDQUFDLENBQUMsRUFBRSxJQUFJLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQTtLQUNyQztDQUNGO01BRVksWUFBWTtJQUl2QixZQUFhLENBQVMsRUFBRSxDQUFTO1FBQy9CLElBQUksQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFBO1FBQ1YsSUFBSSxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUE7S0FDWDtJQUVELE9BQU8sQ0FBRSxDQUFTO1FBQ2hCLE9BQU8sR0FBRyxDQUFDLE1BQU0sQ0FBQyxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUMsRUFBRSxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUE7S0FDckM7SUFFRCxNQUFNLENBQUUsQ0FBUztRQUNmLE9BQU8sR0FBRyxDQUFDLE1BQU0sQ0FBQyxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUMsRUFBRSxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUE7S0FDckM7Q0FDRjtNQU9ZLFlBQVksR0FBRyxnQkFBZ0IsU0FBaUI7SUFDM0QsTUFBTSxDQUFDLEdBQUcsTUFBTSxDQUFBO0lBQ2hCLElBQUksQ0FBUyxFQUFFLENBQVMsRUFBRSxDQUFTLEVBQUUsR0FBVyxDQUFBO0lBQ2hELEdBQUc7UUFDRCxDQUFDLEdBQUcsTUFBTSxHQUFHLENBQUMsS0FBSyxDQUFDLFNBQVMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUE7UUFDdEMsQ0FBQyxHQUFHLE1BQU0sR0FBRyxDQUFDLEtBQUssQ0FBQyxTQUFTLEdBQUcsQ0FBQyxDQUFDLENBQUE7UUFDbEMsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLENBQUE7UUFDVCxHQUFHLEdBQUcsQ0FBQyxDQUFDLEdBQUcsRUFBRSxLQUFLLENBQUMsR0FBRyxFQUFFLENBQUMsQ0FBQTtLQUMxQixRQUFRLEdBQUcsQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEtBQUssU0FBUyxLQUFLLEdBQUcsR0FBRyxDQUFDLEtBQUssRUFBRSxDQUFDLEVBQUM7SUFFNUQsTUFBTSxTQUFTLEdBQUcsSUFBSSxZQUFZLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFBO0lBRXhDLE1BQU0sQ0FBQyxHQUFHLEdBQUcsQ0FBQyxNQUFNLENBQUMsQ0FBQyxFQUFFLEdBQUcsQ0FBQyxDQUFBO0lBRTVCLE1BQU0sT0FBTyxHQUFHLElBQUksYUFBYSxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQTtJQUV2QyxPQUFPO1FBQ0wsU0FBUztRQUNULFVBQVUsRUFBRSxPQUFPO0tBQ3BCLENBQUE7QUFDSDs7OzsifQ==

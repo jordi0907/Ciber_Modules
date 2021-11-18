@@ -15,7 +15,7 @@
 
 #### Defined in
 
-[src/ts/rsa.ts:43](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L43)
+[rsa.ts:41](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L41)
 
 ___
 
@@ -25,4 +25,4 @@ ___
 
 #### Defined in
 
-[src/ts/rsa.ts:42](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L42)
+[rsa.ts:40](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L40)

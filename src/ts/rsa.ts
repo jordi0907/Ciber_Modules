@@ -1,4 +1,4 @@
-import bcu from 'bigint-crypto-utils'
+import * as bcu from 'bigint-crypto-utils'
 
 export class RsaPrivateKey {
   d: bigint

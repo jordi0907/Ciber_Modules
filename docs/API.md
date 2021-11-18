@@ -7,10 +7,6 @@ This module runs perfectly in node.js and browsers
 
 ## Table of contents
 
-### Namespaces
-
-- [bigintConversion](modules/bigintConversion.md)
-
 ### Classes
 
 - [RsaPrivateKey](classes/RsaPrivateKey.md)
@@ -43,7 +39,7 @@ This module runs perfectly in node.js and browsers
 
 #### Defined in
 
-[src/ts/rsa.ts:46](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/rsa.ts#L46)
+[rsa.ts:44](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L44)
 
 ___
 
@@ -69,4 +65,4 @@ A gratifying Hello to the input name
 
 #### Defined in
 
-[src/ts/hello-world.ts:11](https://github.com/jordi0907/Ciber_Modules/blob/f2e04d0/src/ts/hello-world.ts#L11)
+[hello-world.ts:11](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/hello-world.ts#L11)

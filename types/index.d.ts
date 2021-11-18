@@ -8,5 +8,4 @@
  */
 export { helloWorld } from './hello-world';
 export { rsaKeyPair, RsaPublicKey, RsaPrivateKey, generateKeys } from './rsa';
-export * as bigintConversion from 'bigint-conversion';
 //# sourceMappingURL=index.d.ts.map
