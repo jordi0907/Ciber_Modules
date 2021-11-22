@@ -39,7 +39,7 @@ This module runs perfectly in node.js and browsers
 
 #### Defined in
 
-[rsa.ts:44](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/rsa.ts#L44)
+[rsa.ts:44](https://github.com/jordi0907/Ciber_Modules/blob/c8a5aa2/src/ts/rsa.ts#L44)
 
 ___
 
@@ -65,4 +65,4 @@ A gratifying Hello to the input name
 
 #### Defined in
 
-[hello-world.ts:11](https://github.com/jordi0907/Ciber_Modules/blob/42ecc83/src/ts/hello-world.ts#L11)
+[hello-world.ts:11](https://github.com/jordi0907/Ciber_Modules/blob/c8a5aa2/src/ts/hello-world.ts#L11)
